@@ -6,6 +6,8 @@ Overview: Provide live data on the TV while training.
 Goals: Use the data to make it so I can concentrate on riding the bike and not staring at my computer.
 
 Steps:
+(DONE) - Purchase Ant USB stick 
+- Have live heart being transmitted over the usb showing on the computer.
 - Have live wattage shown in a window beside the video.
 - Be able to set FTP so that zones are shown in a meter or similar graphical form
 - Be able to set time and zones so you that they could change during a workout
