@@ -41,5 +41,9 @@ Unfortunatley streaming data has turned out to be significantly more complicated
 -   [sufervision](http://suffervision.appspot.com/)
 -   [cyclecam](https://sites.google.com/site/verymadmart/cyclecam)
 
-
+### Helpful Links
+-   [thisisant](http://www.thisisant.com/products/data-sheets-brochures)
+-   [QtQuarqd](https://github.com/dhague/QtQuarqd)
+-   [Quarqd Source](https://groups.google.com/forum/?fromgroups=#!topic/golden-cheetah-users/LvY68xcofyI)
+-   [Ant+ from Sony](http://developer.sonymobile.com/knowledge-base/technologies/ant/)
 
