@@ -41,4 +41,27 @@ public class Time {
 			}
 		}
 	}
+
+	public boolean isDone() {
+		if(seconds + minutes  + hours > 0) {
+			return false;
+		}
+		return true;
+	}
+	
+	@Override
+	public String toString() {
+		return getStringTime(hours, minutes, seconds);
+	}
+	
+	private String getStringTime(int hrs, int min, int sec) {
+		String time = addZero(hrs) + ":" + addZero(min) + ":" + addZero(sec);
+		return time;
+	}
+
+	public String addZero(int num) {
+		String number = (num < 10) ? ("0" + num) : ("" + num);
+		return number;
+
+	}
 }
