@@ -14,6 +14,7 @@ class Clock extends JFrame implements Runnable {
 
 	public Clock() {
 		super("Java clock");
+		timer = new Timer();
 		setSize(350, 100);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
@@ -27,12 +28,11 @@ class Clock extends JFrame implements Runnable {
 		contentArea.add(timeDisplay);
 		setContentPane(contentArea);
 		
-		timer = new Timer();
 		start(); 
 	}
 
 	public String getCurrentTime() {
-		return timer.getTime();
+		return timer.getTimeThatCounts();
 	}
 
 	public void start() {

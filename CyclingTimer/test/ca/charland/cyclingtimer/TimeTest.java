@@ -10,6 +10,9 @@ import org.junit.Test;
 
 public class TimeTest {
 
+	/**
+	 * The time specified should be the time that you count up too not from
+	 */
 	private Time time;
 
 	static void assertTime(Time expected, Time actual) {
@@ -36,22 +39,22 @@ public class TimeTest {
 
 	@Test
 	public void nextTimeWhenCountingUp() {
-		Time next = time.getNextTime();
-		assertTime(new Time(0,0,1), next);
+		time.next();
+		assertTime(new Time(0,0,1), time);
 	}
 	
 	@Test
 	public void nextTimeToOneMinute() {
 		time = new Time(0,0,59);
-		Time next = time.getNextTime();
-		assertTime(new Time(0,1,0), next);
+		time.next();
+		assertTime(new Time(0,1,0), time);
 	}
 	
 	@Test
 	public void nextTimeToOneHour() {
 		time = new Time(0,59,59);
-		Time next = time.getNextTime();
-		assertTime(new Time(1,0,0), next);
+		time.next();
+		assertTime(new Time(1,0,0), time);
 	}
 	
 	@Test
@@ -66,12 +69,8 @@ public class TimeTest {
 	} 
 	
 	@Test
-	public void basicStringOutput() {
-	}
-	
-	@Test
-	public void correctFormattingForSeconds() {
-		time = new Time(0,0,25);
-		assertThat(time.toString(), is("00:00:25"));
+	public void correctFormatting() {
+		time = new Time(12,3,25);
+		assertThat(time.toString(), is("12:03:25"));
 	}
 }

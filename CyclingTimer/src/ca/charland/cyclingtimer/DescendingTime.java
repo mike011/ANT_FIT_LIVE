@@ -10,12 +10,7 @@ public class DescendingTime extends Time {
 	}
 
 	@Override
-	public Time getNextTime() {
-		previous();
-		return new Time(hours, minutes, seconds);
-	}
-
-	private void previous() {
+	public void next() {
 		if(--seconds < 0) {
 			seconds = 59;
 			if(--minutes < 0) {

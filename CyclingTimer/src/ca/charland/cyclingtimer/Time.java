@@ -32,7 +32,7 @@ public class Time {
 		return new Time(hours, minutes, seconds);
 	}
 
-	private void next() {
+	public void next() {
 		if(++seconds >= 60) {
 			seconds = 0;
 			if(++minutes >= 60) {

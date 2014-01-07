@@ -15,7 +15,7 @@ class ClockPanel extends JPanel {
 	public void paintComponent(Graphics painter) {
 		painter.setFont(this.clock.getClockFont());
 		painter.setColor(Color.black);
-		painter.drawString(this.clock.getCurrentTime(), 60, 40);
+		painter.drawString(clock.getCurrentTime(), 60, 40);
 
 	}
 }
