@@ -19,7 +19,7 @@ public class Timer {
 		Time time = events.get(index);
         if(notFirst) {
         	if(time.isDone()) {
-        		if(index < events.size() -1) {
+        		if(index < events.size() - 1) {
         			time = getNextTime();
         		}
         	} else {

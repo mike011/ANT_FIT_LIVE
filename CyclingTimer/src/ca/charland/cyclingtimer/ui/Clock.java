@@ -1,12 +1,14 @@
 package ca.charland.cyclingtimer.ui;
 import java.awt.Container;
 import java.awt.Font;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
 
 import ca.charland.cyclingtimer.Timer;
 
-class Clock extends JFrame implements Runnable {
+class Clock extends JFrame implements Runnable, MouseListener {
 	private static final long serialVersionUID = 2452895417378600827L;
 	private Thread runner; 
 	private Font clockFont;
@@ -62,5 +64,26 @@ class Clock extends JFrame implements Runnable {
 
 	public Font getClockFont() {
 		return clockFont;
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		//timer.reset();
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
 	}
 }
