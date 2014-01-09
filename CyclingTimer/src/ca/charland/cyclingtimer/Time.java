@@ -28,6 +28,18 @@ public class Time {
 	}
 
 	public void setSeconds(int seconds) {
+		if(seconds >= 60) {
+			++minutes;
+			seconds = 0;
+		}
 		this.seconds = seconds;
+	}
+
+	public void setMinutes(int minutes) {
+		if(minutes >= 60) {
+			++hours;
+			minutes = 0;
+		}
+		this.minutes = minutes;
 	}
 }
