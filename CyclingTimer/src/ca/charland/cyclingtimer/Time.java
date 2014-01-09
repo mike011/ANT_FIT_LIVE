@@ -1,5 +1,6 @@
 package ca.charland.cyclingtimer;
 
+
 public class Time {
 
 	private int seconds;
@@ -27,19 +28,30 @@ public class Time {
 		return hours;
 	}
 
-	public void setSeconds(int seconds) {
-		if(seconds >= 60) {
+	public void setMinutes(int minutes) {
+		if (minutes >= 60) {
+			++hours;
+			minutes -= 60;
+		}
+		this.minutes = minutes;
+	}
+
+	public boolean equals(Time time) {
+		boolean sec = seconds == time.getSeconds();
+		boolean min = minutes == time.getMinutes();
+		boolean hrs = hours == time.getHours();
+		return sec && min && hrs;
+	}
+
+	public void decrement() {
+		--seconds;
+	}
+
+	public void increment() {
+		++seconds;
+		if (seconds == 60) {
 			++minutes;
 			seconds = 0;
 		}
-		this.seconds = seconds;
-	}
-
-	public void setMinutes(int minutes) {
-		if(minutes >= 60) {
-			++hours;
-			minutes = 0;
-		}
-		this.minutes = minutes;
 	}
 }

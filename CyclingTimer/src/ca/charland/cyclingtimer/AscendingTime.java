@@ -1,9 +1,6 @@
 package ca.charland.cyclingtimer;
 
-public class AscendingTime {
-
-	private Time startTime;
-	private Time endTime;
+public class AscendingTime extends CountingTimer{
 
 	public AscendingTime(int hours, int minutes, int seconds) {
 		startTime = new Time();
@@ -14,10 +11,15 @@ public class AscendingTime {
 		return startTime;
 	}
 
+	@Override
 	public void next() {
-		startTime.setSeconds(startTime.getSeconds() + 1);
+		int seconds = startTime.getSeconds() + 1;
+		if(seconds <= endTime.getSeconds()) {
+			startTime.increment();
+		}
 	}
 
+	@Override
 	public boolean isDone() {
 		return startTime.getSeconds() == endTime.getSeconds();
 	}
