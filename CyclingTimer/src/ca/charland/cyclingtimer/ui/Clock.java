@@ -6,6 +6,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
 
+import ca.charland.cyclingtimer.AscendingTime;
 import ca.charland.cyclingtimer.Timer;
 
 class Clock extends JFrame implements Runnable, MouseListener {
@@ -13,10 +14,12 @@ class Clock extends JFrame implements Runnable, MouseListener {
 	private Thread runner; 
 	private Font clockFont;
 	private Timer timer;
+	private boolean started;
 
-	public Clock() {
+	public Clock(Timer timer) {
 		super("Java clock");
-		timer = new Timer();
+		this.timer = timer;
+		addMouseListener(this);
 		setSize(350, 100);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
@@ -34,7 +37,10 @@ class Clock extends JFrame implements Runnable, MouseListener {
 	}
 
 	public String getCurrentTime() {
-		return timer.getTimeThatCounts();
+		if(started) {
+			return timer.getTimeThatCounts();
+		}
+		return timer.getCurrentTime().toString();
 	}
 
 	public void start() {
@@ -59,7 +65,10 @@ class Clock extends JFrame implements Runnable, MouseListener {
 	}
 
 	public static void main(String[] args) {
-		new Clock();
+		Timer timer = new Timer();
+		timer.add(new AscendingTime(0,0,5));
+		timer.add(new AscendingTime(0,0,5));
+		new Clock(timer);
 	}
 
 	public Font getClockFont() {
@@ -68,7 +77,8 @@ class Clock extends JFrame implements Runnable, MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		//timer.reset();
+		timer.reset();
+		started = true;
 	}
 
 	@Override

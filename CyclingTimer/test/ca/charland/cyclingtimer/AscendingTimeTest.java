@@ -43,4 +43,12 @@ public class AscendingTimeTest {
 		TimeTest.assertTime(0, 0, 1, time.getCurrentTime());
 		assertTrue(time.isDone());
 	}
+	
+	@Test
+	public void resetToOriginal() {
+		time = new AscendingTime(0, 0, 1);
+		time.next();
+		time.reset();
+		TimeTest.assertTime(0, 0, 0, time.getCurrentTime());
+	}
 }

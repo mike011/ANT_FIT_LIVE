@@ -54,4 +54,20 @@ public class Time {
 			seconds = 0;
 		}
 	}
+	
+	@Override
+	public String toString() {
+		return getStringTime(hours, minutes, seconds);
+	}
+	
+	private String getStringTime(int hrs, int min, int sec) {
+		String time = addZero(hrs) + ":" + addZero(min) + ":" + addZero(sec);
+		return time;
+	}
+
+	public String addZero(int num) {
+		String number = (num < 10) ? ("0" + num) : ("" + num);
+		return number;
+
+	}
 }

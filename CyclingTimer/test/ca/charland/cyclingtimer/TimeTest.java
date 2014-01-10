@@ -54,6 +54,12 @@ public class TimeTest {
 		time.increment();
 		assertTime(0,0,1, time);
 	}
+	
+	@Test
+	public void correctFormatting() {
+		time = new Time(12,3,25);
+		assertThat(time.toString(), is("12:03:25"));
+	}
 
 	public static void assertTime(int hours, int min, int sec, Time actual) {
 		assertThat(actual.getSeconds(), is(sec));
