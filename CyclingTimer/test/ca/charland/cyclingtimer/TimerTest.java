@@ -12,6 +12,12 @@ public class TimerTest {
 		timer = new Timer();		
 	}
 	
+	private void countDownTimer() {
+		timer.next();
+		timer.next();
+		timer.next();
+	}
+	
 	@Test
 	public void alwaysComeWithCountDownTimer() {
 		TimeTest.assertTime(0, 0, 3, timer.getCurrentTime());
@@ -20,19 +26,13 @@ public class TimerTest {
 	@Test
 	public void canContainMultipleTimes() {
 		timer.add(new DescendingTime(0,0,1));
-		countDownTimer(timer);
+		countDownTimer();
 		TimeTest.assertTime(0, 0, 1, timer.getCurrentTime());
 	}
 
-	private void countDownTimer(Timer timer) {
-		timer.next();
-		timer.next();
-		timer.next();
-	}
-	
 	@Test
 	public void onlyShowsZeroWhenDone() {
-		countDownTimer(timer);
+		countDownTimer();
 		timer.next();
 		TimeTest.assertTime(0, 0, 0, timer.getCurrentTime());
 	}
